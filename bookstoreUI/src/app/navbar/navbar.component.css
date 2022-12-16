@@ -1,0 +1,21 @@
+mat-sidenav-container {
+    height: calc(205vh - 115vh);
+}
+mat-sidenav {
+    width: 200px;
+    background-color: #eee;
+}
+
+.example-container {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    align-items: center;
+}
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .example-sidenav {
+     user-select: none;
+  }
