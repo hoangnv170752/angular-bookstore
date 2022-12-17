@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MatListModule} from '@angular/material/list';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
