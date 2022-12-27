@@ -1,19 +1,12 @@
 <h3 style="margin: 5%;">Đây là Quản lý sách</h3>
 
 <table mat-table matSort class="mat-elevation-z8" style="margin: 5%;">
-    <ng-container matColumnDef="id">
-        <th mat-header-cell mat-sort-header> ID</th>
-        <tr mat-cell>ID</tr>
-    </ng-container>
-    <ng-container matColumnDef="name">
-        <th scope="col">Name</th>
-        <tr mat-cell>Name</tr>
-    </ng-container>
-    <tr>
-        <th scope="col">Name</th>
-    </tr>
-    <tr>
-        <th scope="col">Name</th>
-    </tr>
+    <thead>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Price</th>
+        <th scope="col">Type</th>
+        <th scope="col">isRead</th>
+    </thead>
 </table>
 
