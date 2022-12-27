@@ -1,0 +1,84 @@
+{
+    "book": [
+      {
+        "id": 1,
+        "title": "Sách giáo khoa Toán",
+        "amount": "1500",
+        "price": "25000",
+        "type": "NXB Giáo Dục",
+        "isactive": true
+      },
+      {
+        "title": "Thám tử lừng danh Conan",
+        "amount": "5015",
+        "price": "25000",
+        "type": "NXB Trẻ",
+        "isactive": true,
+        "id": 2
+      },
+      {
+        "title": "Sách giáo khoa Văn",
+        "amount": "1000",
+        "price": "2000",
+        "type": "NXB Giáo Dục",
+        "isactive": true,
+        "id": 3
+      },
+      {
+        "title": "Sách giáo khoa Sinh",
+        "amount": "1000",
+        "price": "2000",
+        "type": "NXB Giáo Dục",
+        "isactive": true,
+        "id": 3
+      },
+      {
+        "title": "Sách giáo khoa Hóa",
+        "amount": "1000",
+        "price": "2000",
+        "type": "NXB Giáo Dục",
+        "isactive": true,
+        "id": 3
+      },
+      {
+        "title": "Sách giáo khoa Lý",
+        "amount": "1000",
+        "price": "2000",
+        "type": "NXB Giáo Dục",
+        "isactive": true,
+        "id": 3
+      },
+      {
+        "title": "Sách giáo khoa Địa",
+        "amount": "1000",
+        "price": "2000",
+        "type": "NXB Giáo Dục",
+        "isactive": true,
+        "id": 3
+      },
+      {
+        "title": "Sách giáo khoa Sử",
+        "amount": "1000",
+        "price": "2000",
+        "type": "NXB Giáo Dục",
+        "isactive": true,
+        "id": 3
+      },
+      {
+        "title": "Sách giáo khoa Âm nhạc",
+        "amount": "1000",
+        "price": "2000",
+        "type": "NXB Giáo Dục",
+        "isactive": true,
+        "id": 3
+      },
+      {
+        "title": "Sách giáo khoa Tiếng Pháp",
+        "amount": "1000",
+        "price": "2000",
+        "type": "NXB Giáo Dục",
+        "isactive": true,
+        "id": 3
+      }
+    ]
+  }
