@@ -1,0 +1,39 @@
+<div class="filter" style="display:flex ; margin: 2%;">
+    <app-input [inputLabel]="inputLabelBookDetail" (inputValueChange)="getFilterText($event)"></app-input>
+    <app-select [selectLabel]="selectLabelBookDetail" [selectOption]="filterStatusOption" (selectedValueChange)="getFilterStatus($event)"></app-select>
+</div>
+<table class="table" style="margin: 2%;" mat-table class="mat-elevation-z8">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Status</th>
+            <th scope="col">Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books | filter : filterText : filterStatus">
+            <th scope="row">{{book.id}}</th>
+            <td>
+                <input type="text" class="edit__Book" [(ngModel)]="bookNameEdit" *ngIf="isEditEnable == true && isEditEnableIndex == book.id">
+                <span *ngIf="isEditEnable == false || isEditEnableIndex != book.id">{{book.name}} </span>
+            </td>
+            <td>
+                <select class="form-select" *ngIf="isEditEnable == true && isEditEnableIndex == book.id" #status (change)="onSelected(status.value)">
+                    <option *ngFor="let option of statusOption" ngValue="{{option}}">{{option}}</option>
+                </select>
+                <span *ngIf="isEditEnable == false || isEditEnableIndex != book.id">{{book.status}} </span>
+            </td>
+            <td *ngIf="isEditEnable == true && isEditEnableIndex == book.id;else cannotedit">
+                <button type="button" class="btn btn-primary" (click)="onSave(book.id, bookNameEdit, bookStatusEdit)"><span>Save</span></button>
+                <button type="button" class="btn btn-secondary" (click)="onCancel()"><span>Cancel</span></button>
+            </td>
+            <ng-template #cannotedit>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="onEdit(book.id)">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="onDelete(book.id)"><span>Delete</span></button>
+                </td>
+            </ng-template>
+        </tr>
+    </tbody>
+</table>

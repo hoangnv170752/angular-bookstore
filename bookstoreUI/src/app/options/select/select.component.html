@@ -1,0 +1,4 @@
+<label for="">{{selectLabel}}</label>
+<select class="form-select" [(ngModel)]="selectedValue" (ngModelChange)="emitStatus()">
+    <option  *ngFor="let option of selectOption" ngValue="{{option}}" >{{option}}</option>
+</select>

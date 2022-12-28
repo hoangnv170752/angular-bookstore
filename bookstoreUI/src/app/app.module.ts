@@ -9,18 +9,27 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
+import { AddBookComponent } from './home/addbook/addbook.component';
+import { BookDetailComponent } from './home/bookdetail/bookdetail.component';
+import { InputComponent } from './options/input/input.component';
+import { SelectComponent } from './options/select/select.component';
+import { FilterPipe } from './filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    AboutComponent,
+    AddBookComponent,
+    BookDetailComponent,
+    InputComponent,
+    SelectComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +43,7 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
