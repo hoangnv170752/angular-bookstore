@@ -1,33 +1,35 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { bookmodel } from '../Model/bookmodel';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
-  apiurl = 'http://localhost:3000/book/';
-
-  Getallbook(): Observable<bookmodel[]> {
-    return this.http.get<bookmodel[]>(this.apiurl);
+  constructor(private _http:HttpClient) { }
+  postBook(data: any) {
+    return this._http.post<any>("http://localhost:3000/book", data).pipe(map((res: any) => {
+      return res
+    }))
   }
 
-  GetBookbycode(id: any): Observable<bookmodel> {
-    return this.http.get<bookmodel>(this.apiurl + '/' + id);
+  getBook() {
+    return this._http.get<any>("http://localhost:3000/book").pipe(map((res:any)=> {
+      return res
+    }))
   }
 
-  RemoveBookbycode(id: any) {
-    return this.http.delete(this.apiurl + '/' + id);
+  putBook(data:any, id:number){
+    return this._http.put<any>("http://localhost:3000/book/" + id,data).pipe(map((res:any)=> {
+      return res
+    }))
   }
 
-  CreateBook(bookmodel: any) {
-    return this.http.post(this.apiurl, bookmodel);
-  }
-
-  UpdateBook(id: any, bookmodel: any) {
-    return this.http.put(this.apiurl + '/' + id, bookmodel);
+  // Delete Method For Update Student
+  deleteBook(id:number){
+    return this._http.delete<any>("http://localhost:3000/book/" + id).pipe(map((res:any)=> {
+      return res
+    }))
   }
 }

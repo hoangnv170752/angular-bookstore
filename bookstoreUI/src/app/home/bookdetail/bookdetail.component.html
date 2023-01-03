@@ -1,18 +1,53 @@
-<div class="filter" style="display:flex ; margin: 2%;">
+<div class="filter" style="display:flex ; margin: 2%; ">
     <app-input [inputLabel]="inputLabelBookDetail" (inputValueChange)="getFilterText($event)"></app-input>
-    <app-select [selectLabel]="selectLabelBookDetail" [selectOption]="filterStatusOption" (selectedValueChange)="getFilterStatus($event)"></app-select>
+    <app-select [selectLabel]="selectLabelBookDetail" [selectOption]="filterStatusOption" (selectedValueChange)="getFilterStatus($event)" style="display:flex ;"></app-select>
+    <app-select [selectLabel]="selectDateBookDetail"  [selectOption]="filterDateOption" (selectedValueChange)="getFilterDate($event)" style="display:flex ;"></app-select>
+    
 </div>
-<table class="table" style="margin: 2%;" mat-table class="mat-elevation-z8">
+<div style="display:flex ; margin: 2%; ">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit(form.value.id, form.value.name, form.value.status, form.value.date )" novalidate #form="ngForm">
+        <input matInput type="number" value="id" placeholder="Id" formControlName="id" required maxlength="5" >
+        <input matInput type="text" value="name" placeholder="name" formControlName="name" required>
+        <select formControlName="status">
+            <option [ngValue]="'Chưa đọc'">Chưa đọc</option>
+            <option [ngValue]="'Đã đọc'">Đã đọc</option>
+        </select>
+        <input matInput type="text" value="date" placeholder="date" formControlName="date" required>
+        <button type="submit" class="btn btn-success"><span>Thêm sách</span></button>
+    </form>
+</div>
+<div *ngIf="id.invalid">
+  <div *ngIf="id.errors?.['required']">
+    Thêm Id.
+  </div>
+</div>
+<div *ngIf="name.invalid">
+    <div *ngIf="name.errors?.['required']">
+      Thêm Tên.
+    </div>
+</div>
+<div *ngIf="status.invalid">
+    <div *ngIf="status.errors?.['required']">
+      Thêm Trạng thái đọc.
+    </div>
+</div>
+<div *ngIf="date.invalid">
+    <div *ngIf="date.errors?.['required']">
+      Thêm Trạng thái đọc.
+    </div>
+</div>
+<table class="table table-striped" style="margin: 2%;"  >
     <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Status</th>
-            <th scope="col">Option</th>
+            <th scope="col">Tên sách</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Ngày mua</th>
+            <th scope="col">Lựa chọn</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let book of books | filter : filterText : filterStatus">
+        <tr *ngFor="let book of books | filter : filterText : filterStatus : filterDate">
             <th scope="row">{{book.id}}</th>
             <td>
                 <input type="text" class="edit__Book" [(ngModel)]="bookNameEdit" *ngIf="isEditEnable == true && isEditEnableIndex == book.id">
@@ -24,8 +59,12 @@
                 </select>
                 <span *ngIf="isEditEnable == false || isEditEnableIndex != book.id">{{book.status}} </span>
             </td>
+            <td>
+                <input type ="date" [(ngModel)]="bookDateEdit" *ngIf="isEditEnable == true && isEditEnableIndex == book.id" >
+                <span *ngIf="isEditEnable == false || isEditEnableIndex != book.id">{{book.date}} </span>
+            </td>
             <td *ngIf="isEditEnable == true && isEditEnableIndex == book.id;else cannotedit">
-                <button type="button" class="btn btn-primary" (click)="onSave(book.id, bookNameEdit, bookStatusEdit)"><span>Save</span></button>
+                <button type="button" class="btn btn-primary" (click)="onSave(book.id, bookNameEdit, bookStatusEdit, bookDateEdit)"><span>Save</span></button>
                 <button type="button" class="btn btn-secondary" (click)="onCancel()"><span>Cancel</span></button>
             </td>
             <ng-template #cannotedit>
@@ -37,3 +76,6 @@
         </tr>
     </tbody>
 </table>
+
+ <!-- Modal -->
+ 

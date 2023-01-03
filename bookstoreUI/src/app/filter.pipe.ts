@@ -5,11 +5,16 @@ import { Book } from './book';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-  transform(books: Book[], filterText: String, filterStatus: String): Book[] {
+  transform(books: Book[], filterText: String, filterStatus: String, filterDate: String): Book[] {
     if (books.length == 0 || filterText == '') {
       if (filterStatus != '') {
         return books.filter(({ status }) => {
           return status.trim().toLowerCase() == filterStatus.trim().toLowerCase()
+        })
+      }
+      if (filterDate != '') {
+        return books.filter(({ date }) => {
+          return date.trim().toLowerCase() == filterDate.trim().toLowerCase()
         })
       }
       return books

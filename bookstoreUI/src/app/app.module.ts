@@ -18,7 +18,8 @@ import { BookDetailComponent } from './home/bookdetail/bookdetail.component';
 import { InputComponent } from './options/input/input.component';
 import { SelectComponent } from './options/select/select.component';
 import { FilterPipe } from './filter.pipe';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatCardModule,
     FormsModule,
+    MatDatepickerModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
